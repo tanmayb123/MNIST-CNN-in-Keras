@@ -5,13 +5,12 @@ from keras.models import Sequential
 from keras.layers import Convolution2D, MaxPooling2D
 from keras.layers import Flatten, Dense
 import sys
-
 img_width, img_height = 28, 28
 
 def create_model():
   model = Sequential()
 
-  model.add(Convolution2D(16, 5, 5, activation='relu', input_shape=(img_width, img_height, 3)))
+  model.add(Convolution2D(16, 5, 5, activation='relu', input_shape=(img_width, img_height, 1)))
   model.add(MaxPooling2D(2, 2))
 
   model.add(Convolution2D(32, 5, 5, activation='relu'))
