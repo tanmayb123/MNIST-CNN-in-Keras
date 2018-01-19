@@ -17,9 +17,8 @@ epoch = 30
 
 # ** Model Begins **
 model = Sequential()
-model.add(Convolution2D(16, 5, 5, activation='relu', input_shape=(img_width, img_height, 3)))
+model.add(Convolution2D(16, 5, 5, activation='relu', input_shape=(img_width, img_height, 1)))
 model.add(MaxPooling2D(2, 2))
-
 model.add(Convolution2D(32, 5, 5, activation='relu'))
 model.add(MaxPooling2D(2, 2))
 
