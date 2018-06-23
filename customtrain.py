@@ -1,6 +1,6 @@
 from keras.preprocessing.image import ImageDataGenerator
 from keras.models import Sequential
-from keras.layers import Convolution2D, MaxPooling2D
+from keras.layers import Conv2D, MaxPooling2D
 from keras.layers import Flatten, Dense
 
 img_width, img_height = 28, 28
@@ -13,14 +13,13 @@ train_samples = 60000
 
 validation_samples = 10000
 
-epoch = 30
+epoch = 4
 
 # ** Model Begins **
 model = Sequential()
-model.add(Convolution2D(16, 5, 5, activation='relu', input_shape=(img_width, img_height, 3)))
+model.add(Conv2D(16, (5, 5), activation='relu', input_shape=(img_width, img_height, 3)))
 model.add(MaxPooling2D(2, 2))
-
-model.add(Convolution2D(32, 5, 5, activation='relu'))
+model.add(Conv2D(32, (5, 5), activation='relu'))
 model.add(MaxPooling2D(2, 2))
 
 model.add(Flatten())
@@ -55,9 +54,9 @@ validation_generator = test_datagen.flow_from_directory(
 
 model.fit_generator(
         train_generator,
-        samples_per_epoch=train_samples,
-        nb_epoch=epoch,
+        steps_per_epoch=train_samples,
+        epochs=epoch,
         validation_data=validation_generator,
-        nb_val_samples=validation_samples)
+        validation_steps= validation_samples)
 
 model.save_weights('mnistneuralnet.h5')
