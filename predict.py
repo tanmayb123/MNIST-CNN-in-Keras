@@ -2,19 +2,18 @@ import numpy
 import cv2
 from keras.preprocessing.image import ImageDataGenerator
 from keras.models import Sequential
-from keras.layers import Convolution2D, MaxPooling2D
+from keras.layers import Conv2D, MaxPooling2D
 from keras.layers import Flatten, Dense
 import sys
-
 img_width, img_height = 28, 28
 
 def create_model():
   model = Sequential()
 
-  model.add(Convolution2D(16, 5, 5, activation='relu', input_shape=(img_width, img_height, 3)))
+  model.add(Conv2D(16, (5, 5), activation='relu', input_shape=(img_width, img_height, 3)))
   model.add(MaxPooling2D(2, 2))
 
-  model.add(Convolution2D(32, 5, 5, activation='relu'))
+  model.add(Conv2D(32, (5, 5), activation='relu'))
   model.add(MaxPooling2D(2, 2))
 
   model.add(Flatten())
@@ -40,4 +39,4 @@ for n in [0,1,2,3,4,5,6,7,8,9]:
 	if (prediction[n] > bestconf):
 		bestclass = str(n)
 		bestconf = prediction[n]
-print 'I think this digit is a ' + bestclass + ' with ' + str(bestconf * 100) + '% confidence.'
+print('I think this digit is a ' + bestclass + ' with ' + str(bestconf * 100) + '% confidence.')
