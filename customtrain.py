@@ -12,8 +12,8 @@ validation_data_dir = 'data/validation'
 train_samples = 60000
 
 validation_samples = 10000
-
-epoch = 2
+#try to keep more epoch value for better accuracy
+epoch = 30
 
 # ** Model Begins **
 model = Sequential()
