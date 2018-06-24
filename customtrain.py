@@ -13,7 +13,7 @@ train_samples = 60000
 
 validation_samples = 10000
 
-epoch = 4
+epoch = 2
 
 # ** Model Begins **
 model = Sequential()

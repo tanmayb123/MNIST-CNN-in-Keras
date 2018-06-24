@@ -39,4 +39,4 @@ for n in [0,1,2,3,4,5,6,7,8,9]:
 	if (prediction[n] > bestconf):
 		bestclass = str(n)
 		bestconf = prediction[n]
-print 'I think this digit is a ' + bestclass + ' with ' + str(bestconf * 100) + '% confidence.'
+print('I think this digit is a ' + bestclass + ' with ' + str(bestconf * 100) + '% confidence.')
